@@ -5,6 +5,8 @@
  */
 package Module7;
 
+import Module07.Customer;
+import Module07.CustomerDatabase;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
