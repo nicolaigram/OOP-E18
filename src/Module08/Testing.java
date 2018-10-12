@@ -29,9 +29,12 @@ class Student {
 }
 
 class SoftwareStudent extends Student {
+    
+    String special;
 
     public SoftwareStudent(String name) {
         super(name);
+        this.special = "AJAX";
     }
 
     @Override
@@ -41,5 +44,9 @@ class SoftwareStudent extends Student {
     
     public void printArea() {
         System.out.println("Software");
+    }
+    
+    public void printSpecial() {
+        System.out.println(special);
     }
 }
