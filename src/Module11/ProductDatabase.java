@@ -39,22 +39,15 @@ public class ProductDatabase {
     }
 
     public void removeProduct(int productNumber) {
-        for (int i = 0; i < productList.size(); i++) {
-            Product p = productList.get(i);
+        for (Product p : productList) {
             if (p.getNumber() == productNumber) {
                 productList.remove(p);
                 System.out.printf("Product \"%s\" was removed. There are now %d products in the database.%n", p.getName(), productList.size());
+                break;
             }
         }
     }
 
-//    public void printProducts() {
-//        for (int i = 0; i < productList.size(); i++) {
-//            Product p = productList.get(i);
-//            System.out.printf("%s [%s] %s%n", p.getName(), p.getNumber(), Currency.format(p.getPrice()));
-//        }
-//    }
-    
     public void printProducts() {
         for (Product p : productList) {
             System.out.println(p.toString());
