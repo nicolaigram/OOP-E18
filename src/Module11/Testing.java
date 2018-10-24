@@ -1,5 +1,7 @@
 package Module11;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Nicolai Gram
@@ -8,6 +10,8 @@ public class Testing {
 
     public static void main(String[] args) {
         Circle c = new Circle(1, 2, 3);
+        HashMap<String, Integer> map = new HashMap<>();
+        System.out.println(map.put("Hej", 337));
     }
 
 }
