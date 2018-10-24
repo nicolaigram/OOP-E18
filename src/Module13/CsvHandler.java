@@ -1,7 +1,9 @@
 package Module13;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -19,10 +21,13 @@ public class CsvHandler {
 
     private void load() {
         try {
-            Scanner sc = new Scanner(file).useDelimiter(",");
+            Scanner sc = new Scanner(new BufferedReader(new FileReader(file))).useDelimiter(",");
+            long startTime = System.currentTimeMillis();
             while (sc.hasNext()) {
                 strings.add(sc.next());
             }
+            long endTime = System.currentTimeMillis();
+            System.out.printf("File loaded [%s] strings in %s millisecond(s).", strings.size(), (endTime - startTime));
         } catch (FileNotFoundException e) {
             System.out.println("Error loading file!");
             System.out.println(e.getMessage());
@@ -120,7 +125,7 @@ public class CsvHandler {
         System.out.println("ex - Exit");
         System.out.print("\n> ");
     }
-    
+
     public void promptAddLine() {
         String inputText;
         int inputIndex;
@@ -132,7 +137,7 @@ public class CsvHandler {
 
         this.addLine(inputIndex, inputText);
     }
-    
+
     private void promptRemoveLine() {
         System.out.printf("Enter index (0 - %s): ", strings.size() - 1);
         this.removeLine(promptIndex());
