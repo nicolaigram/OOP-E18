@@ -9,7 +9,7 @@ public class GroceryInventory {
 
     public static void main(String[] args) {
         ProductDatabase inventory = new ProductDatabase();
-
+        
         FoodProduct p1 = foodProductCreator("Milk", 6.95, 1000000000, 5);
         inventory.addProduct(p1);
         FoodProduct p2 = foodProductCreator("Cream", 12.95, 800000000, 3);
