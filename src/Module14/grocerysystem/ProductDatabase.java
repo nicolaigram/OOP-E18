@@ -64,4 +64,18 @@ public class ProductDatabase {
         //Return a copy of the array, so that the database is not exposed to external actors.
         return new ArrayList(products);
     }
+    
+    public void removeExpiredFoods() {
+        for (int i = 0; i < products.size(); i++) {
+            Product p = products.get(i);
+            try {
+                if (p.isExpired()) {
+                    System.out.printf("Removing product [%s] as it's expired\n", p.getName());
+                    this.removeProduct(p);
+                }
+            } catch (Exception e) {
+                System.out.printf("Exception caught: Product [%s] does not have an expiry date\n", p.getName());
+            }
+        }
+    }
 }
