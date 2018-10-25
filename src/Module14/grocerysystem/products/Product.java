@@ -2,7 +2,7 @@ package Module14.grocerysystem.products;
 
 import java.util.UUID;
 
-public abstract class Product
+public class Product
 {
     private UUID serial;
     private String name;
