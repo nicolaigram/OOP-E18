@@ -33,6 +33,7 @@ public class ProductDatabase {
         products.remove(p);
     }
 
+    
     public String printInventory() {
         //Use StringBuild to create a combined string from multiple strings.
         StringBuilder sb = new StringBuilder();
