@@ -72,6 +72,7 @@ public class ProductDatabase {
                 if (p.isExpired()) {
                     System.out.printf("Removing product [%s] as it's expired\n", p.getName());
                     this.removeProduct(p);
+                    i--;
                 }
             } catch (Exception e) {
                 System.out.printf("Exception caught: Product [%s] does not have an expiry date\n", p.getName());

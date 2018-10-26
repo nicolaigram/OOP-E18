@@ -3,6 +3,7 @@ package Module14.grocerysystem;
 import Module14.grocerysystem.products.FoodProduct;
 import Module14.grocerysystem.products.NonFoodProduct;
 import Module14.grocerysystem.products.Product;
+import Module14.grocerysystem.products.interfaces.Expirable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,7 +24,7 @@ public class GroceryInventory {
 
         NonFoodProduct p5 = new NonFoodProduct("Stol", 29.5, new String[]{"Plast", "Mere plast"});
         inventory.addProduct(p5);
-        
+
         NonFoodProduct p6 = new NonFoodProduct("Samsung Galaxy S9", 7899.95, new String[]{"Snapdragon something something", "Ram", "Screen"});
         inventory.addProduct(p6);
 
@@ -34,13 +35,19 @@ public class GroceryInventory {
         for (Product p : inventory.getProducts()) {
             System.out.println(p.toString());
         }
-        
+
         //Add expired products for testing
         FoodProduct p7 = foodProductCreator("Cheese", 4.75, -5000, 5);
         inventory.addProduct(p7);
-        
+
+        FoodProduct p8 = foodProductCreator("Bread", 2.00, -5000, 20);
+        inventory.addProduct(p8);
+
+        FoodProduct p9 = foodProductCreator("Banana", 1.25, 500, 20);
+        inventory.addProduct(p9);
+
         inventory.removeExpiredFoods();
-        
+
     }
 
     private static FoodProduct foodProductCreator(String name, double price, long expOffsetMs, int temp) {
