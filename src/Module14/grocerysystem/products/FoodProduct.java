@@ -52,7 +52,8 @@ public class FoodProduct extends Product
 
     @Override
     public boolean isExpired() {
-        return this.expireDate.compareTo(new Date()) < 0;
+        Date now = new Date();
+        return expireDate.before(now);
     }
 
 }
