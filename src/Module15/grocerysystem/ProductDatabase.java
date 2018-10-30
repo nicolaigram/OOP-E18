@@ -1,8 +1,8 @@
-package grocerysystem;
+package Module15.grocerysystem;
 
 import java.text.DecimalFormat;
 import java.util.UUID;
-import grocerysystem.products.Product;
+import Module15.grocerysystem.products.Product;
 import java.util.ArrayList;
 
 public class ProductDatabase {

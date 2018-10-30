@@ -1,6 +1,6 @@
-package grocerysystem.products;
+package Module15.grocerysystem.products;
 
-import grocerysystem.products.interfaces.Expireable;
+import Module15.grocerysystem.products.interfaces.Expireable;
 import java.util.UUID;
 
 public abstract class Product implements Expireable

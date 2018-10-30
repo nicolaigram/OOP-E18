@@ -1,8 +1,9 @@
-package grocerysystem;
+package Module15.grocerysystem;
 
-import grocerysystem.products.FoodProduct;
-import grocerysystem.products.NonFoodProduct;
-import grocerysystem.products.Product;
+import Module15.Exceptions.ExpiredProductAddedException;
+import Module15.grocerysystem.products.FoodProduct;
+import Module15.grocerysystem.products.NonFoodProduct;
+import Module15.grocerysystem.products.Product;
 import java.util.Date;
 
 public class GroceryInventory {
@@ -10,12 +11,26 @@ public class GroceryInventory {
     public static void main(String[] args) {
         ProductDatabase inventory = new ProductDatabase();
 
-        FoodProduct p1 = foodProductCreator("Milk", 6.95, -1000000000, 5);
-        inventory.addProduct(p1);
-        FoodProduct p2 = foodProductCreator("Cream", 12.95, 800000000, 3);
-        inventory.addProduct(p2);
-        FoodProduct p3 = foodProductCreator("Cake", 18.00, 8000000000L, 20);
-        inventory.addProduct(p3);
+        try {
+            FoodProduct p1 = foodProductCreator("Milk", 6.95, -1000000000, 5);
+            inventory.addProduct(p1);
+        } catch (ExpiredProductAddedException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        try {
+            FoodProduct p2 = foodProductCreator("Cream", 12.95, 800000000, 3);
+            inventory.addProduct(p2);
+        } catch (ExpiredProductAddedException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        try {
+            FoodProduct p3 = foodProductCreator("Cake", 18.00, 8000000000L, 20);
+            inventory.addProduct(p3);
+        } catch (ExpiredProductAddedException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         NonFoodProduct p4 = new NonFoodProduct("Reol", 295.5, new String[]{"Bøg", "Maling"});
         inventory.addProduct(p4);
@@ -37,7 +52,7 @@ public class GroceryInventory {
         inventory.removeExpiredFoods();
     }
 
-    private static FoodProduct foodProductCreator(String name, double price, long expOffsetMs, int temp) {
+    private static FoodProduct foodProductCreator(String name, double price, long expOffsetMs, int temp) throws ExpiredProductAddedException {
         Date d = new Date();
         d.setTime(d.getTime() + expOffsetMs);
         return new FoodProduct(name, price, d, temp);
