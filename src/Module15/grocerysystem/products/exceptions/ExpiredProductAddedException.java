@@ -1,4 +1,4 @@
-package Module15.Exceptions;
+package Module15.grocerysystem.products.exceptions;
 
 public class ExpiredProductAddedException extends Exception {
 
