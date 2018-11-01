@@ -5,32 +5,17 @@ import Module15.grocerysystem.products.FoodProduct;
 import Module15.grocerysystem.products.NonFoodProduct;
 import Module15.grocerysystem.products.Product;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GroceryInventory {
 
     public static void main(String[] args) {
         ProductDatabase inventory = new ProductDatabase();
 
-        try {
-            FoodProduct p1 = foodProductCreator("Milk", 6.95, -1000000000, 5);
-            inventory.addProduct(p1);
-        } catch (ExpiredProductAddedException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        try {
-            FoodProduct p2 = foodProductCreator("Cream", 12.95, 800000000, 3);
-            inventory.addProduct(p2);
-        } catch (ExpiredProductAddedException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        try {
-            FoodProduct p3 = foodProductCreator("Cake", 18.00, 8000000000L, 20);
-            inventory.addProduct(p3);
-        } catch (ExpiredProductAddedException ex) {
-            System.out.println(ex.getMessage());
-        }
+        tryAddFoodProduct("Milk", 6.95, -1000000000, 5, inventory);
+        tryAddFoodProduct("Cream", 12.95, 800000000, 3, inventory);
+        tryAddFoodProduct("Cake", 18.00, 8000000000L, 20, inventory);
 
         NonFoodProduct p4 = new NonFoodProduct("Reol", 295.5, new String[]{"Bøg", "Maling"});
         inventory.addProduct(p4);
@@ -52,6 +37,15 @@ public class GroceryInventory {
         inventory.removeExpiredFoods();
     }
 
+    private static void tryAddFoodProduct(String name, double price, long expOffsetMs, int temp, ProductDatabase inventory) {
+        try {
+            FoodProduct fp = foodProductCreator(name, price, expOffsetMs, temp);
+            inventory.addProduct(fp);
+        } catch (ExpiredProductAddedException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
     private static FoodProduct foodProductCreator(String name, double price, long expOffsetMs, int temp) throws ExpiredProductAddedException {
         Date d = new Date();
         d.setTime(d.getTime() + expOffsetMs);
