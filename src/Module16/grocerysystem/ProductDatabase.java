@@ -3,8 +3,11 @@ package Module16.grocerysystem;
 import java.text.DecimalFormat;
 import java.util.UUID;
 import Module16.grocerysystem.products.Product;
+import Module16.grocerysystem.products.ProductNameLengthComparator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProductDatabase {
 
@@ -70,9 +73,14 @@ public class ProductDatabase {
             }
         }
         System.out.println("Removing a total of " + expiredProducts.size() + " expired product(s)");
-        for(Product expiredProduct : expiredProducts)
-        {
+        for (Product expiredProduct : expiredProducts) {
             products.remove(expiredProduct);
         }
+    }
+
+    public ArrayList<Product> sortedByNameLength() {
+        ArrayList<Product> productsCopy = new ArrayList<>(products.values());
+        Collections.sort(productsCopy, new ProductNameLengthComparator());
+        return productsCopy;
     }
 }
