@@ -1,6 +1,6 @@
-package grocerysystem.products;
+package Module16.grocerysystem.products;
 
-import grocerysystem.exceptions.ExpiredProductAddedException;
+import Module16.grocerysystem.exceptions.ExpiredProductAddedException;
 import java.util.Date;
 import java.util.Objects;
 

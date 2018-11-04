@@ -1,9 +1,9 @@
-package grocerysystem;
+package Module16.grocerysystem;
 
-import grocerysystem.exceptions.ExpiredProductAddedException;
-import grocerysystem.products.FoodProduct;
-import grocerysystem.products.NonFoodProduct;
-import grocerysystem.products.Product;
+import Module16.grocerysystem.exceptions.ExpiredProductAddedException;
+import Module16.grocerysystem.products.FoodProduct;
+import Module16.grocerysystem.products.NonFoodProduct;
+import Module16.grocerysystem.products.Product;
 import java.util.Date;
 
 public class GroceryInventory {

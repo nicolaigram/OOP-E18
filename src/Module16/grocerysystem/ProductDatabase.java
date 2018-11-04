@@ -1,29 +1,26 @@
-package grocerysystem;
+package Module16.grocerysystem;
 
 import java.text.DecimalFormat;
 import java.util.UUID;
-import grocerysystem.products.Product;
+import Module16.grocerysystem.products.Product;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProductDatabase {
 
-    private ArrayList<Product> products;
+    private HashMap<UUID, Product> products;
 
     public ProductDatabase() {
-        this.products = new ArrayList();
+        products = new HashMap<>();
     }
 
     public void addProduct(Product p) {
 
-        products.add(p);
+        products.put(p.getSerial(), p);
     }
 
     public void removeProduct(UUID serial) {
-        for (Product p : products) {
-            if (p.getSerial().equals(serial)) {
-                products.remove(p);
-            }
-        }
+        products.remove(serial);
     }
 
     public void removeProduct(Product p) {
@@ -36,7 +33,7 @@ public class ProductDatabase {
         //Append adds String to the end of the combined string.
         sb.append("Lagerbeholdning:\n");
 
-        for (Product p : products) {
+        for (Product p : products.values()) {
             sb.append("Name: ").append(p.getName()).append("\t")
                     .append("Price: ").append(p.getPrice()).append("\t")
                     .append("Serial: ").append(p.getSerial()).append("\n");
@@ -48,7 +45,7 @@ public class ProductDatabase {
     public String getTotalPrice() {
         double result = 0;
         //Loop through all products. Accumulate prices.
-        for (Product p : products) {
+        for (Product p : products.values()) {
             result += p.getPrice();
         }
         //Use DecimalFormat class to get a currency representation of the double in local currency.
@@ -57,12 +54,12 @@ public class ProductDatabase {
 
     public ArrayList<Product> getProducts() {
         //Return a copy of the array, so that the database is not exposed to external actors.
-        return new ArrayList(products);
+        return new ArrayList<Product>(products.values());
     }
 
     public void removeExpiredFoods() {
         ArrayList<Product> expiredProducts = new ArrayList<>();
-        for (Product p : products) {
+        for (Product p : products.values()) {
             try {
                 if (p.isExpired()) {
                     // can do products.remove(p) as we are iterating the list. Save for later.
