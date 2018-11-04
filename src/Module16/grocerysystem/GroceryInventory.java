@@ -40,6 +40,17 @@ public class GroceryInventory {
         }
 
         inventory.removeExpiredFoods();
+        
+        System.out.println("\nSorting by name length: ");
+        for (Product p : inventory.sortedByNameLength()) {
+            System.out.println(p.toString());
+        }
+        
+        System.out.println("\nSorting by price: ");
+        for (Product p : inventory.sortedByPrice()) {
+            System.out.println(p.toString());
+        }
+        
     }
 
     private static FoodProduct foodProductCreator(String name, double price, long expOffsetMs, int temp) throws ExpiredProductAddedException {
