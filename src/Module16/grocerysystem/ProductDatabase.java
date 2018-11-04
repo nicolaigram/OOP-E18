@@ -83,4 +83,10 @@ public class ProductDatabase {
         Collections.sort(productsCopy, new ProductNameLengthComparator());
         return productsCopy;
     }
+    
+    public ArrayList<Product> sortedByPrice() {
+        ArrayList<Product> productsCopy = new ArrayList<>(products.values());
+        Collections.sort(productsCopy);
+        return productsCopy;
+    }
 }
