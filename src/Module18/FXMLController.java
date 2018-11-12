@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Module18;
 
 import java.net.URL;
@@ -52,14 +47,6 @@ public class FXMLController implements Initializable {
 
                     }
                 });
-        
-//                .addListener((observableValue, oldValue, newValue) -> {
-//                    formFirstName.setText(newValue.getFirstName());
-//                    formLastName.setText(newValue.getLastName());
-//                    formEmail.setText(newValue.getEmail());
-//                    formPhone.setText(newValue.getPhone());
-//                });
-
     }
 
     private void loadData() {
