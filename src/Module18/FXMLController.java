@@ -16,7 +16,7 @@ public class FXMLController implements Initializable {
     @FXML
     private ListView<Contact> contactsListView;
     @FXML
-    private final ObservableList contacts = FXCollections.observableArrayList();
+    private final ObservableList contactsObservableList = FXCollections.observableArrayList();
     @FXML
     private TextField formFirstName;
     @FXML
@@ -50,13 +50,13 @@ public class FXMLController implements Initializable {
     }
 
     private void loadData() {
-        contacts.removeAll(contacts);
-        contacts.add(new Contact("Anders", "Agerlund", "aa@hotmail.com", "66 11 66 22"));
-        contacts.add(new Contact("Benny", "Bentsen", "bb@hotmail.com", "555 112 52"));
-        contacts.add(new Contact("Chris", "Christophersen", "cc@hotmail.com", "65 66 21 20"));
-        contacts.add(new Contact("Dan", "Dahlberg", "dd@hotmail.com", "24 20 53 12"));
-        contacts.add(new Contact("Erik", "Enevold", "ee@hotmail.com", "62 12 35 29"));
-        contactsListView.getItems().addAll(contacts);
+        contactsObservableList.removeAll(contactsObservableList);
+        contactsObservableList.add(new Contact("Anders", "Agerlund", "aa@hotmail.com", "66 11 66 22"));
+        contactsObservableList.add(new Contact("Benny", "Bentsen", "bb@hotmail.com", "555 112 52"));
+        contactsObservableList.add(new Contact("Chris", "Christophersen", "cc@hotmail.com", "65 66 21 20"));
+        contactsObservableList.add(new Contact("Dan", "Dahlberg", "dd@hotmail.com", "24 20 53 12"));
+        contactsObservableList.add(new Contact("Erik", "Enevold", "ee@hotmail.com", "62 12 35 29"));
+        contactsListView.setItems(contactsObservableList);
     }
 
 }
