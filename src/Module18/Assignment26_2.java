@@ -18,7 +18,7 @@ public class Assignment26_2 extends Application {
         
         Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
         Scene scene = new Scene(root);
-        primaryStage.setTitle("My app");
+        primaryStage.setTitle("Contact App - Task 26.2");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
