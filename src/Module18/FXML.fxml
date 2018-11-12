@@ -17,7 +17,7 @@
       </VBox>
    </center>
    <right>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <VBox>
                <children>
@@ -25,7 +25,7 @@
                   <TextField fx:id="formFirstName" />
                </children>
                <VBox.margin>
-                  <Insets bottom="15.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
             <VBox>
@@ -34,7 +34,7 @@
                   <TextField fx:id="formLastName" />
                </children>
                <VBox.margin>
-                  <Insets bottom="15.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
             <VBox>
@@ -43,7 +43,7 @@
                   <TextField fx:id="formEmail" />
                </children>
                <VBox.margin>
-                  <Insets bottom="15.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
             <VBox>
@@ -52,13 +52,16 @@
                   <TextField fx:id="formPhone" />
                </children>
                <VBox.margin>
-                  <Insets bottom="15.0" />
+                  <Insets />
                </VBox.margin>
             </VBox>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </VBox>
    </right>
 </BorderPane>
