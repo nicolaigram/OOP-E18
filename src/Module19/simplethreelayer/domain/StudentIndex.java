@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simplethreelayer.domain;
+package Module19.simplethreelayer.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import simplethreelayer.dataaccess.DataAccess;
-import simplethreelayer.interfaces.IDataAccess;
-import simplethreelayer.interfaces.IStudentIndex;
+import Module19.simplethreelayer.dataaccess.DataAccess;
+import Module19.simplethreelayer.interfaces.IDataAccess;
+import Module19.simplethreelayer.interfaces.IStudentIndex;
 
 /**
  *
