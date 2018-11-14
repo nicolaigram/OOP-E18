@@ -11,12 +11,13 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import simplethreelayer.interfaces.IDataAccess;
 
 /**
  *
  * @author Anders
  */
-public class DataAccess {
+public class DataAccess implements IDataAccess {
 
     private final String path;
     public DataAccess(String path)
